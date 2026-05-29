@@ -3,52 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>❤️ Оддоо ❤️</title>
+<title>Оддоо ❤️</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
 body{
-    background:#000;
+    margin:0;
+    background:black;
     overflow:hidden;
     font-family:Arial,sans-serif;
-    height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
+    height:100vh;
     text-align:center;
 }
 
 .container{
-    position:relative;
     z-index:10;
-    padding:20px;
 }
 
 .heart{
-    font-size:130px;
+    font-size:120px;
     animation:beat 1.2s infinite;
-    filter:drop-shadow(0 0 25px #ff3366);
 }
 
 h1{
-    color:#ff5c8a;
-    font-size:38px;
-    margin-top:10px;
-    text-shadow:0 0 15px #ff5c8a;
+    color:#ff4d6d;
+    font-size:40px;
+    margin:15px;
 }
 
-.message{
-    margin-top:20px;
+p{
     color:white;
-    font-size:22px;
-    line-height:1.8;
-    max-width:700px;
-    text-shadow:0 0 10px pink;
+    font-size:24px;
+    margin:10px;
+}
+
+.love{
+    color:#ff80ab;
+    font-size:30px;
+    font-weight:bold;
 }
 
 .float{
@@ -80,23 +74,23 @@ h1{
 
 <div class="container">
 
-    <div class="heart">❤️</div>
+<div class="heart">❤️</div>
 
-    <h1>🎂 Төрсөн өдрийн мэнд хүргэе, миний Од ❤️</h1>
+<h1>🎂 Төрсөн өдрийн мэнд хүргэе,<br>миний Од ❤️</h1>
 
-    <div class="message">
-        Өнөөдөр аз жаргал, инээмсэглэлээр дүүрэн сайхан өдөр өнгөрүүлээрэй ✨
-        <br><br>
-        Чиний хүссэн бүхэн биелж,
-        үргэлж аз жаргалтай байгаасай гэж хүсэж байна 💕
-        <br><br>
-        Хайртай шүү ❤️
-    </div>
+<p>
+Өнөөдөр аз жаргал, инээмсэглэлээр дүүрэн<br>
+сайхан өдөр өнгөрүүлээрэй ✨
+</p>
+
+<div class="love">
+Чамдаа маш их хайртай шүү 💕
+</div>
 
 </div>
 
 <script>
-for(let i=0;i<70;i++){
+for(let i=0;i<60;i++){
     let h=document.createElement("div");
 
     h.className="float";
@@ -104,7 +98,7 @@ for(let i=0;i<70;i++){
 
     h.style.left=Math.random()*100+"vw";
     h.style.fontSize=(20+Math.random()*30)+"px";
-    h.style.animationDuration=(4+Math.random()*6)+"s";
+    h.style.animationDuration=(4+Math.random()*5)+"s";
     h.style.animationDelay=Math.random()*5+"s";
 
     document.body.appendChild(h);
