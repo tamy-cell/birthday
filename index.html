@@ -6,117 +6,107 @@
 <title>❤️ Happy Birthday ❤️</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+body{
+    margin:0;
+    background:black;
+    overflow:hidden;
+    color:white;
+    font-family:Arial,sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    height:100vh;
 }
 
-body{
-background:#000;
-overflow:hidden;
-font-family:Arial,sans-serif;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-color:white;
+.message{
+    position:absolute;
+    top:30px;
+    text-align:center;
+    z-index:1000;
+}
+
+.message h1{
+    color:#ff4d6d;
+    font-size:50px;
+}
+
+.message h2{
+    color:white;
+    font-size:35px;
 }
 
 .heart{
-position:relative;
-width:300px;
-height:270px;
-transform:rotate(-45deg);
-background:#ff004f;
-animation:beat 1s infinite;
-box-shadow:0 0 50px #ff004f;
-}
-
-.heart:before,
-.heart:after{
-content:"";
-position:absolute;
-width:300px;
-height:270px;
-background:#ff004f;
-border-radius:50%;
-}
-
-.heart:before{
-top:-150px;
-left:0;
-}
-
-.heart:after{
-left:150px;
-top:0;
-}
-
-.text{
-position:absolute;
-z-index:100;
-text-align:center;
-font-size:28px;
-font-weight:bold;
-text-shadow:0 0 20px pink;
-}
-
-.love{
-font-size:50px;
-color:#fff;
-margin-top:10px;
+    color:#ff4d6d;
+    font-size:14px;
+    line-height:14px;
+    white-space:pre;
+    text-align:center;
+    animation:beat 1.5s infinite;
 }
 
 .floating{
-position:absolute;
-color:#ff4d6d;
-font-size:25px;
-animation:float 8s linear infinite;
+    position:absolute;
+    font-size:30px;
+    animation:float 8s linear infinite;
 }
 
 @keyframes beat{
-0%{transform:rotate(-45deg) scale(1);}
-50%{transform:rotate(-45deg) scale(1.08);}
-100%{transform:rotate(-45deg) scale(1);}
+    0%{transform:scale(1);}
+    50%{transform:scale(1.08);}
+    100%{transform:scale(1);}
 }
 
 @keyframes float{
-0%{
-transform:translateY(100vh);
-opacity:0;
-}
-20%{
-opacity:1;
-}
-100%{
-transform:translateY(-100px);
-opacity:0;
-}
+    from{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+    to{
+        transform:translateY(-120vh);
+        opacity:1;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="text">
-🎉 Төрсөн өдрийн мэнд хүргэе<br>
-Хайрт минь ❤️
-<div class="love">I LOVE YOU 💕</div>
+<div class="message">
+<h1>🎉 Төрсөн өдрийн мэнд хүргэе, хайрт минь ❤️</h1>
+<h2>Чамдаа маш их хайртай шүү 💕</h2>
 </div>
 
-<div class="heart"></div>
+<div class="heart" id="heart"></div>
 
 <script>
+
+let heart = "";
+for(let y=15;y>-15;y--){
+    let line="";
+    for(let x=-30;x<30;x++){
+        let a=x*0.05;
+        let b=y*0.1;
+
+        if(Math.pow(a*a+b*b-1,3)-a*a*b*b*b<=0){
+            line+="I LOVE YOU ";
+        }else{
+            line+=" ";
+        }
+    }
+    heart += line + "\n";
+}
+
+document.getElementById("heart").innerText = heart;
+
 for(let i=0;i<80;i++){
-let h=document.createElement("div");
-h.innerHTML="💕";
-h.className="floating";
-h.style.left=Math.random()*100+"vw";
-h.style.animationDuration=(4+Math.random()*6)+"s";
-h.style.fontSize=(20+Math.random()*30)+"px";
-document.body.appendChild(h);
+    let h=document.createElement("div");
+    h.innerHTML="💕";
+    h.className="floating";
+    h.style.left=Math.random()*100+"vw";
+    h.style.animationDuration=(4+Math.random()*6)+"s";
+    h.style.fontSize=(20+Math.random()*30)+"px";
+    document.body.appendChild(h);
 }
 </script>
 
